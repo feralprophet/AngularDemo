@@ -4,12 +4,12 @@ import { Component } from "@angular/core";
     selector: 'pm-app',
     template: `
        <div><h1>{{pageTitle}}</h1>
-        <div>My First Comp</div>
+       <pm-products></pm-products>
         </div>
     `
 })
 
 
 export class AppComponent {
-    pageTitle: string = 'My Project';
+    pageTitle: string = 'My Project Changed??';
 }
