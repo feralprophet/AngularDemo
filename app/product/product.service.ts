@@ -20,7 +20,6 @@ private _productUrl = 'api/products/products.json';
             .map((response: Response) => <IProduct[]>response.json())
             .catch(this.handleError);
     }
-
     private handleError(error: Response) {
         console.error(error);
 

@@ -10,16 +10,18 @@ import { AppComponent }  from './app.component';
 import {ProductListComponent} from './product/product-list.component'
 import {WelcomeComponent} from './home/welcome.component';
 import {ProductDetailComponent} from './product/product-detail.component';
+import {ProductDetailGuard} from './product/product-guard.service';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule,
         RouterModule.forRoot([
             { path: 'products', component: ProductListComponent },
-            { path: 'product/:id', component: ProductDetailComponent },
+            { path: 'product/:id', canActivate:[ProductDetailGuard], component: ProductDetailComponent },
             { path: 'welcome', component: WelcomeComponent },
             {path: '', redirectTo:'welcome', pathMatch:'full'},
             {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
         ])],
+    providers: [ProductDetailGuard],
     declarations: [AppComponent,
         WelcomeComponent,
         ProductDetailComponent,
